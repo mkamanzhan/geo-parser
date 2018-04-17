@@ -1,6 +1,7 @@
 # Geo-Parser
 
-#### Description
+
+### Description
 Geo-Parser is a python package that returns 
 coordinates for given address
 
@@ -11,7 +12,18 @@ Package uses multithreading to parse
 multiple addresses in one time. It means that package
 can be used to parse large datasets of addresses
 
-#### Usage
+
+### Usage
+
+Clone project to temp folder:
+```bash
+git clone https://github.com/mkamanzhan/geo-parser
+```
+
+Install package:
+```bash
+pip install package_dir/
+```
 
 Create GeoPoint object from given address:
 
@@ -55,7 +67,8 @@ GeoPoint parse status can be retrieved by ```geo_point.status``` attribute
 * 2 for success parsed GeoPoints
 * 3 for GeoPoints that can't retrieve coordinates fro services(services returns zero result)
 
-#### Used Instruments and Links
+
+### Used Instruments and Links
 
 Requests: http://docs.python-requests.org/en/master/
 <br>
@@ -73,3 +86,4 @@ Google API: https://developers.google.com/maps/documentation/geocoding/intro?hl=
 Similar projects:
 * [GeoParser](https://geoparser.io/docs.html)
 * [Mordecai](https://github.com/openeventdata/mordecai)
+

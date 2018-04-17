@@ -1,4 +1,3 @@
-from .geo_point import GeoPoint
 from multiprocessing import Pool
 
 
