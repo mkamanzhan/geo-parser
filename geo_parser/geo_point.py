@@ -1,6 +1,5 @@
-from geo_parser.settings import *
-from geo_parser.parsers.yandex_parser import parse as yandex_parse
-from geo_parser.parsers.google_parser import parse as google_parse
+from .yandex_parser import parse as yandex_parse
+from .google_parser import parse as google_parse
 
 STATUS_CODE = {
     1: 'not_parsed',
