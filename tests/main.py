@@ -1,5 +1,5 @@
 import csv
-from geo_parser.parser import parse_all, GeoPoint
+    from geo_parser import parse_all, parse, GeoPoint
 
 
 class MyDialect(csv.Dialect):
