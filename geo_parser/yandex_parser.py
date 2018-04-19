@@ -24,6 +24,7 @@ def parse(geo_point, attempts=0):
         geo_point.used_map = 'yandex'
 
     except Exception as e:
+        print(e)
         if attempts == 3:
             geo_point.status = 1
             return
