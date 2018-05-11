@@ -40,9 +40,7 @@ geo_point = GeoPoint(
 Parse its coordinates:
 
 ```python
-from geo_parser import parse
-
-parse(geo_point)
+geo_point.parse_coord()
 
 print(geo_point.coordinates)
 ```
@@ -53,13 +51,20 @@ Result in (lat, long):
 
 Also its possible to parse multiple GeoPoints:
 ```python
-from geo_parser import parse_all
+from geo_parser import SimpleParser
 
 # geo_points: list of GeoPoints
 
 # optional arguments 
 #   pool_size: number of threads running one time. default=20
-parse_all(geo_points)
+#   service_keys: apikeys of Yandex & Google geocoder Service
+simple_parser = SimpleParser(geo_points)
+simple_parser.parse_all()
+print(simple_parser.geo_points)
+```
+Result in list:
+```pythonstub
+[GeoPoint, GeoPoint, ...]
 ```
 
 GeoPoint parse status can be retrieved by ```geo_point.status``` attribute
