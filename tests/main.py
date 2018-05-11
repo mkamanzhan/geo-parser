@@ -1,5 +1,11 @@
 import csv, time
-from geo_parser import parse_all, GeoPoint
+from geo_parser import SimpleParser, GeoPoint
+
+
+SERVICE_KEYS = {
+    'yandex': None,
+    'google': None
+}
 
 
 class MyDialect(csv.Dialect):
@@ -12,11 +18,11 @@ class MyDialect(csv.Dialect):
 def test():
     start_time = time.time()
     geo_points = read_csv('tests/data/data.csv')
-
-    geo_points = parse_all(geo_points, pool_size=50)
-    write_csv(geo_points)
+    simple_parser = SimpleParser(geo_points[:10], service_keys=SERVICE_KEYS)
+    geo_points = simple_parser.parse_all(pool_size=50)
+    write_csv(simple_parser.geo_points)
     end_time = time.time()
-    print("Size: " + str(len(geo_points)))
+    print("Size: " + str(len(simple_parser.geo_points)))
     print("Total parse time: " + str(end_time - start_time) + "s")
 
 

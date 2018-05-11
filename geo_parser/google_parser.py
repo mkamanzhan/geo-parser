@@ -2,13 +2,18 @@ from geo_parser.settings import GOOGLE
 import requests
 
 
-def parse(geo_point, attempts=0):
-    query = geo_point.country + " город " + geo_point.city + " " + geo_point.address
+def parse(geo_point, key, attempts=0):
+    query = geo_point.country + " город " + geo_point.city + " " + \
+            geo_point.address
 
     data = {
         'language': 'ru',
         'address': query
     }
+
+    if key:
+        data['key'] = key
+
     try:
         response = requests.get(GOOGLE.get('PARSE_URL'), data)
         json = response.json()

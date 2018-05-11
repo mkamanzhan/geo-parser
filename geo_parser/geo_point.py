@@ -32,10 +32,10 @@ class GeoPoint:
         self.status = 1
         self.used_map = None
 
-    def parse_coord(self):
-        yandex_parse(self)
+    def parse_coord(self, service_keys):
+        yandex_parse(self, service_keys.get('yandex'))
         if self.status == 3:
-            google_parse(self)
+            google_parse(self, service_keys.get('google'))
 
     def __str__(self):
         return str(self.__dict__)

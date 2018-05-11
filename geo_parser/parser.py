@@ -1,11 +1,8 @@
-from multiprocessing import Pool
+from geo_parser.base_parser import BaseParser
 
 
-def parse_all(geo_points, pool_size=20):
-    pool = Pool(pool_size)
-    return pool.map(parse, geo_points)
+class SimpleParser(BaseParser):
 
-
-def parse(geo_point):
-    geo_point.parse_coord()
-    return geo_point
+    def __init__(self, geo_points, service_keys=None):
+        self.service_keys = service_keys
+        self.geo_points = geo_points

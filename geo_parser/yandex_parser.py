@@ -2,7 +2,7 @@ from geo_parser.settings import YANDEX
 import requests
 
 
-def parse(geo_point, attempts=0):
+def parse(geo_point, key, attempts=0):
     query = "город " + geo_point.city + " " + geo_point.address
 
     data = {
@@ -11,6 +11,10 @@ def parse(geo_point, attempts=0):
         'sco': 'latlong',
         'geocode': query
     }
+
+    if key:
+        data['apikey'] = key
+
     try:
         response = requests.get(YANDEX.get('PARSE_URL'), data)
         json = response.json()
